@@ -391,15 +391,14 @@ ggplot(filter(df_rest_2, SCORE >=60), aes(SCORE)) +
   label = " B", color = "red", hjust = 0) +
   annotate("text", x = (-27+164)/165*100-15, y = 25000,
   label = " C", color = "red", hjust = 0) +
-  ggtitle( "Initial inspection scores of restaurants in NYC \n 
-            with scores higher than 60" ) +theme_grey(16)
+  ggtitle( "Initial inspection scores of restaurants in NYC\nwith scores higher than 60" ) +theme_grey(16)
 
 # heat map of distribution of scores
 ggplot(df_rest_2, aes(y=SCORE, x=INSPECTION_DATE)) +
 geom_hex(bins = 20) +
   xlab("(Initial) Inspection Date")+
   xlab("Score")+
-  ggtitle("Heatmap of Initial Inspection scores of restaurants in NYC") +theme_grey(16) +scale_fill_viridis()
+  ggtitle("Heatmap of Initial Inspection scores \nof restaurants in NYC") +theme_grey(16) +scale_fill_viridis()
 
 ggplot(df_rest_2, aes(GRADE)) + 
   geom_bar(color = "black", fill = "lightblue") + 
@@ -431,7 +430,7 @@ geom_point()  +
   facet_wrap(~GRADE, ncol=1, scales = "free") +
   xlab("Mean Score")+
   ylab("") +
-  labs(title="Initial inspection scores of restaurants\n in NYC by neighborhod")+  
+  labs(title="Initial inspection scores of\nrestaurants in NYC\nby neighborhood")+  
   theme_dotplot+theme_grey(16)
 ```
 
@@ -448,8 +447,7 @@ mean_score_ZIPCODE$GRADE <- sapply(mean_score_ZIPCODE$Mean, score_to_grade)
 # frequency counts of grades
 ggplot(mean_score_ZIPCODE, aes(GRADE)) + 
   geom_bar(color = "black", fill = "lightblue") + 
-  labs(title="Initial inspection grade counts \n
-       by zipcode of restaurants in NYC") +
+  labs(title="Initial inspection grade counts by\nzipcode of restaurants in NYC") +
   xlab("Grades")+theme_grey(16)
 ```
 
@@ -477,7 +475,7 @@ ggplot(filter(df_rest_2, BORO!="0" & SCORE >=60), aes(SCORE)) +
   annotate("text", x = (-27+164)/165*100-15, y = 1000,
   label = " C", color = "red", hjust = 0) +
   facet_grid(BORO~., scale = "free") + 
-  ggtitle("Distribution of Restaurant's converted score by Borough,\n with values larger than 60") +
+  ggtitle("Distribution of Restaurant's converted score by\nBorough, with values larger than 60") +
   xlab("Mean Score")+theme_grey(16)
 
 ```
@@ -487,7 +485,7 @@ ggplot(filter(df_rest_2, BORO!="0" & SCORE >=60), aes(SCORE)) +
 df_count <- summarize(group_by(df_rest_2, BORO,GRADE), Freq = n())
 ggplot(df_count, aes(x=BORO, y= Freq, fill=GRADE)) + 
   geom_bar(position="dodge", stat="identity") +
-  ggtitle("Initial Inspection grades of restaurants by Borough")+theme_grey(16)+scale_fill_viridis(discrete = TRUE)
+  ggtitle("Initial Inspection grades of restaurants\nby Borough")+theme_grey(16)+scale_fill_viridis(discrete = TRUE)
 ```
 
 
