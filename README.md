@@ -1,5 +1,6 @@
 # EDAV Final Project
 title: "Home Alone: Where should a single young male live in NYC?" 
+
 author: "Jinwoo Jung (jj2762), Hyuk Joon Kwon (hk3084), Tae Yoon Lim (tl2968), Hojin Lee (hl3328)"
 
 # Introduction
