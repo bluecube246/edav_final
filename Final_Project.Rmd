@@ -686,9 +686,7 @@ sum_score_neighborhood$grade <- rescaling_neg(sum_score_neighborhood$Sum)
 
 ### 6. Interactive Parts:
 
-https://hl3328.shinyapps.io/EDAV_final_project/
-
-Check out the url above for the interactive graph. We built and hosted interactive graphing app using Shiny R. There are three tabs you can explore in the interactive chart. First, you can choose the year range for all three different dataset and neighborhoods to draw Time series line graph. In the Table tab, you will have access to numbers for the time series graph. Lastly, Neighborhood tab will show you where each neighborhoods are located within NYC. If the connection is lost with the server, please refresh the page. It might take some time to render some plots. 
+Check [here](https://hl3328.shinyapps.io/EDAV_final_project/) for the interactive graph. We built and hosted interactive graphing app using Shiny R. There are three tabs you can explore in the interactive chart. First, you can choose the year range for all three different dataset and neighborhoods to draw Time series line graph. In the Table tab, you will have access to numbers for the time series graph. Lastly, Neighborhood tab will show you where each neighborhoods are located within NYC. If the connection is lost with the server, please refresh the page. It might take some time to render some plots. 
 
 
 
