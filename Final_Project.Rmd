@@ -5,20 +5,22 @@ date: "12/11/2019"
 output: 
   html_document:
     code_folding: hide
+    toc: true
+    toc_float: true
 ---
+[github](https://github.com/hjlee9295/edav_final) | [R Pubs](http://rpubs.com/hjlee9295/edav_final)
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = TRUE)
 ```
 
-# 1. Introduction
+## 1. Introduction
 
 As most of our teammates are new to New York City, we want to know more about the city. Also, as we are looking forward to having a job in the city, we were interested in finding a safe/good place to live in New York City by data analysis and visualization. The number one concern of living is safety. Living in the United States of America, we can easily hear the news of shootings, and some areas in New York state are infamous for it. Moreover, there are a lot of news on crime in the central Bronx or Brooklyn area. The next concern is the quality of food and buildings in the neighborhood. We want to know which neighborhood has many restaurants with A grade in the sanitary section and buildings with good quality such as no leakage, no bugs. Through the analysis, our group wants to know which neighborhood in New York City is a good place to live by considering the safety around the area, quality of restaurants, and the quality of buildings. 
 
 Please note that you need to download the dataset first in order to run the code below. The data must be in the same directory as the Rmd file.
-You can find the [github repo](https://github.com/hjlee9295/edav_final) here.
 
-# 2. Data Source:
+## 2. Data Source:
 We are going to use 3 sets of data from NYC open data, which are 'NYPD Complaint Data,' 'Housing Maintenance Code Violation,' and 'NYC Restaurant Inspection results.' We have exported those data sets as CSV files from the NYC open data webpage.
 
 ### 2-1. Shooting Data
@@ -63,7 +65,7 @@ library(scales)
 library(viridis)
 ```
 
-# 3. Analysis of Shooting Data
+## 3. Analysis of Shooting Data
 
 ### 3-1. Data Transformation:
 
@@ -238,7 +240,7 @@ scores$scaled <- range01(scores$n) * 100
 ```
 
 
-# 4. Dataset: New York City Restaurant Inspection Dataset
+## 4. Dataset: New York City Restaurant Inspection Dataset
 
 ```{r}
 df_rest<- readr::read_csv("DOHMH_New_York_City_Restaurant_Inspection_Results.csv")
@@ -489,7 +491,7 @@ ggplot(df_count, aes(x=BORO, y= Freq, fill=GRADE)) +
 ```
 
 
-# 5.  Analysis of Building Inspection Data
+## 5.  Analysis of Building Inspection Data
 
 ```{r}
 #Data Import
@@ -534,6 +536,7 @@ Other than the transformation above, there are not many transformations to perfo
 
 
 ### 5-2. Result/Analysis:
+
 We have tried two methods to score the safety/wellness of buildings in the area: mean of the score and sum of scores of the neighborhood. Below is the Cleveland dot plot of mean of the scores.
 ```{r fig.height=15, fig.width=20}
 #score group by neighborhood
@@ -684,13 +687,14 @@ sum_score_neighborhood$grade <- rescaling_neg(sum_score_neighborhood$Sum)
 
 
 
-### 6. Interactive Parts:
+## 6. Interactive Parts:
 
 Check [here](https://hl3328.shinyapps.io/EDAV_final_project/) for the interactive graph. We built and hosted interactive graphing app using Shiny R. There are three tabs you can explore in the interactive chart. First, you can choose the year range for all three different dataset and neighborhoods to draw Time series line graph. In the Table tab, you will have access to numbers for the time series graph. Lastly, Neighborhood tab will show you where each neighborhoods are located within NYC. If the connection is lost with the server, please refresh the page. It might take some time to render some plots. 
 
 
 
-### 7. Conclusion
+## 7. Conclusion
+
 ```{r fig.height=10, fig.width=20}
 
 sum_score_neighborhood$gunshoot <- scores$scaled
@@ -725,7 +729,7 @@ After the analysis of NYPD complaint, NYC restaurant sanitary grade, and buildin
 
 Our goal for the project is to score the general quality of the neighborhood by scoring each neighborhood by various factors. However, due to a limitation on time and data, we only used three datasets that measure safety around the area, quality of buildings, and sanitary grades of the restaurants. If we wanted to rigorously score the wellness of area, we need to include factors such as transportation, quality of education for kids, and entertainment in the neighborhood. Moreover, the safety of the area is not only represented by the gunshot incidents of the area but also by records on misdemeanor and felony. The sanitary grade of the restaurants represents the cleanliness of the food but not the quality of the food. Therefore, we felt the limitation of a lack of data. In future studies, we will try to incorporate more factors to score the area in a better way.  
 
-### 8. Link to Data Set Source
+## 8. Link to Data Set Source
 [Restaurant Inspection Data](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j)
 
 [Restaurant Inspection Dataset Description](https://data.cityofnewyork.us/api/views/43nn-pn8j/files/3016a624-55c0-4bd0-bfb4-95c6b9ea6ba4?download=true&filename=About_NYC_Restaurant_Inspection_Data_on_NYC_OpenData_092418.docx)
